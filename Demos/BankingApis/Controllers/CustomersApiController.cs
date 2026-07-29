@@ -10,11 +10,11 @@ namespace BankingApis.Controllers
     {
         private readonly ICustomerService _service;
         private readonly IConfiguration _config;
-        private readonly ILogger _logger;
+        private readonly ILogger<CustomersController> _logger;
 
 
         public CustomersController(
-            ICustomerService service, IConfiguration config, ILogger logger)
+            ICustomerService service, IConfiguration config, ILogger<CustomersController> logger)
         {
             _service = service;
             _config = config;

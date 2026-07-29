@@ -1,0 +1,6 @@
+@DemoCosmosDB_HostAddress = http://localhost:5226
+
+GET {{DemoCosmosDB_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

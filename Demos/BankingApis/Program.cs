@@ -10,7 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddDbContext<BankingDbContext>(options =>
 {
-    options.UseInMemoryDatabase("BankingDb");
+    //options.UseInMemoryDatabase("BankingDb");
+    string connectString = builder.Configuration.GetConnectionString("cn")!;
+    options.UseSqlServer(connectString);
 });
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
