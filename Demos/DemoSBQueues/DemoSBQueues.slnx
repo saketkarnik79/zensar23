@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TransferConsumer/TransferConsumer.csproj" />
+  <Project Path="TransferProducer/TransferProducer.csproj" />
+</Solution>
