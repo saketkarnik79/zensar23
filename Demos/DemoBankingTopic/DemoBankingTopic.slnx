@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="AuditSubscriber/AuditSubscriber.csproj" />
+  <Project Path="FraudSubscriber/FraudSubscriber.csproj" />
+  <Project Path="NotificationSubscriber/NotificationSubscriber.csproj" />
+  <Project Path="RegulatorySubscriber/RegulatorySubscriber.csproj" />
+  <Project Path="SharedModels/SharedModels.csproj" />
+  <Project Path="TransactionPublisher/TransactionPublisher.csproj" />
+</Solution>
