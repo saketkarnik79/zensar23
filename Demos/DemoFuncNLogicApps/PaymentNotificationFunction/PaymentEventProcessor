@@ -1,0 +1,31 @@
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+using System.Text.Json;
+
+namespace PaymentNotificationFunction
+{
+    public class PaymentEventProcessor
+    {
+        private readonly ILogger<PaymentEventProcessor> _logger;
+        private readonly INotificationService _notificationService;
+
+        public PaymentEventProcessor(ILogger<PaymentEventProcessor> logger, INotificationService notificationService)
+        {
+            _logger = logger;
+            _notificationService = notificationService;
+        }
+
+        [Function("PaymentEventProcessor")]
+        public async Task Run([ServiceBusTrigger("payment-events",
+            "payment-notification-sub", Connection = "ServiceBusConnection")] string message)
+        {
+            _logger.LogInformation($"Received payment event message: {message}");
+
+            var payment = JsonSerializer.Deserialize<PaymentEvent>(message);
+
+            // Add your processing logic here
+            await _notificationService?.SendNotification(payment);
+            _logger.LogInformation($"Processing payment event: {payment.PaymentId}, Amount: {payment.Amount}, Status: {payment.Status}");
+        }
+    }
+}
