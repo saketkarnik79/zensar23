@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "BankingFunctions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7138",
+      "launchBrowser": false
+    }
+  }
+}
